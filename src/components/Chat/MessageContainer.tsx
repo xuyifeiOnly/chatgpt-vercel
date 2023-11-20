@@ -54,9 +54,9 @@ export default function ({
       }}
     >
       <div id="message-container-img" class="px-1em">
-        <Show when={!store.messageList.length}>
+        {/* <Show when={!store.messageList.length}>
           <MessageItem hiddenAction={true} message={defaultMessage} />
-        </Show>
+        </Show> */}
         <TransitionGroup name="transition-group">
           <For each={store.messageList}>
             {(message, index) => (
