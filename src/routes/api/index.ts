@@ -60,7 +60,7 @@ export async function POST({ request }: APIEvent) {
       model: Model
     } = await request.json()
     const { messages, key = localKey, temperature, password, model } = body
-    console.log(request.headers.getSetCookie())
+    console.log(password)
 
     if (password !== passwordSet) {
       throw new Error("密码错误，请联系网站管理员。")
