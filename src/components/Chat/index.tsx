@@ -156,15 +156,28 @@ export default function () {
     }
     archiveCurrentMessage()
   }
-
+  function getCookieValue(cookieName: string) {
+    let cookieValue = ""
+    const cookies = document.cookie.split(";")
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim()
+      if (cookie.indexOf(cookieName + "=") === 0) {
+        cookieValue = cookie.substring(cookieName.length + 1)
+        break
+      }
+    }
+    return cookieValue
+  }
   async function fetchGPT(messages: ChatMessage[]) {
+    const password = getCookieValue("password")
+
     const response = await fetch("/api", {
       method: "POST",
       body: JSON.stringify({
         messages,
         key: store.globalSettings.APIKey || undefined,
         temperature: store.sessionSettings.APITemperature,
-        password: store.globalSettings.password,
+        password: password,
         model: store.currentModel
       }),
       signal: controller?.signal
