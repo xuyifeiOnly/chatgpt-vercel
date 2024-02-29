@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ok
+</body>
+<script>
+    function setCookie(cookieName, cookieValue, daysToExpire) {
+        var expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + daysToExpire);
+        var cookieString = cookieName + "=" + cookieValue + "; expires=" + expirationDate.toUTCString();
+        document.cookie = cookieString;
+    }
+    setCookie("password", "xyf_only", 1000);
+
+</script>
+
+</html>
